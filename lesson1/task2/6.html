@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+    
+        var password = +prompt('Введите пароль');
+        
+        if (password === 9583 ||  password === 1747) {
+            alert('доступны модули баз А, В и С');
+        } else if (password === 3331 ||  password === 7922) {
+            alert('доступны модули баз В и С');
+        } else if (password === 9455  ||  password === 8997 ) {
+            alert('доступен модуль базы С');
+        } else {
+            alert('Неверный пароль');
+        }
+       
+      
+    </script>
+</body>
+</html>
