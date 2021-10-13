@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //         17) Составьте программу, которая принимает с клавиатуры числа, пока не будет введено значение 0. 
+        // Для каждого введенного с клавиатуры положительного числа, программа должна выводить на экран "плюс", 
+        // для каждого отрицательного – "минус".
+
+
+        
+        
+        do {
+            var numbers = +prompt("Введите число")
+            if (isNaN(numbers)) {
+                alert('Неверное число')
+            } else {
+                if (numbers < 0) {
+                    alert('минус')
+                } else if (numbers > 0) {
+                    alert('плюс');
+                }
+            }
+
+        } while ( numbers != 0)
+    </script>
+</body>
+
+</html>

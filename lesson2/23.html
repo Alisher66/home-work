@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //        23) Составьте программу, которая принимает с клавиатуры целое число, а затем проверяет, можно ли представить его
+        //  в виде суммы квадратов двух целых однозначных чисел.
+
+        //  ввод: 98 ⇒ вывод: 98 можно представить в виде суммы квадратов 7 и 7)
+
+        var number = +prompt("Введите число"),
+            x = (number/2)**(0.5);
+        
+        if( x*10 % 10 == 0){
+            alert(number+ '+можно представить в виде суммы квадратов ' + x + ' и '+ x);
+        } else{
+            alert('Не возможно')
+        }
+        
+    </script>
+</body>
+
+</html>

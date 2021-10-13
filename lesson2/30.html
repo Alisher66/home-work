@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //         30) Составьте программу, которая вводит с клавиатуры целые положительные двузначные числа до тех пор, 
+        // пока не будет введено число, сумма цифр которого равна 7 (в этом случае выводится сообщение - "завершено").
+        //  ввод: 32, 54, 26, 83, 52) ⇒ вывод: завершено
+
+        var first,second, number;
+
+        do {
+            number = +prompt("Введите двузначное число");
+            first = parseInt(number / 10);
+            second = parseInt(number % 10);
+            
+            if(first+second == 7){
+                alert('завершено '+ first + second)
+                break;
+            }
+
+        } while (true)
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //         25) Составьте программу, которая принимает с клавиатуры целое число и, если оно соответствует оценке ученика, выводит
+        //  на экран соответствующую «текстовую форму оценки» 
+        // (1 или 2 – «неудовлетворительно», 3 – «удовлетворительно», 4 – «хорошо», 5 – «отлично»). В случае, 
+        // если число не является оценкой, следует вывести на экран соответствующее текстовое сообщение.
+        //  ввод: 5 ⇒ вывод: отлично; ввод: 6 ⇒ вывод: это не оценка)
+
+        var score = +prompt("оценке ученика");
+
+        switch (score){
+            case 1:
+            case 2: 
+                alert('неудовлетворительно');
+                break;
+            case 3:
+            alert('удовлетворительно');
+            break;
+            case 4:
+                alert('хорошо');
+                break;
+            case 5:
+                alert('отлично');
+                break;
+            default:
+                alert('это не оценка');
+                break;
+        }
+        
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //         18) Составьте программу, которая принимает с клавиатуры числа, пока не будет введено значение 99. 
+        //         Программа должна подсчитать, сколько чисел было введено с клавиатуры (не считая значения 99) 
+        // и вывести эту информацию на экран.
+
+        var number, count = -1;
+
+        // for(var i=1; true; i++){
+        //     number = prompt('Введите число');
+        //     if (number !== null && number !== ' ' && !isNaN(number)){
+        //         number = Number(number);
+        //         count++;
+
+        //         if (number==99) {
+        //             break;
+        //         }
+        //     } else {
+        //         continue;
+        //     }
+        // }
+        // alert(count);  
+
+
+        do {
+            number = prompt('Введите число');
+
+            if (number !== null && number !== ' ' && !isNaN(number)) {
+                number = Number(number);
+                count++;
+            } else {
+                continue;
+            }
+
+
+        } while (number != 99)
+
+        alert(count);
+
+
+    </script>
+</body>
+
+</html>

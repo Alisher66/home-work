@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //         21) Составьте программу, которая принимает с клавиатуры целые числа, пока не будут введены друг за другом два одинаковых числа. 
+        // Программа должна вывести на экран сообщение о равенстве чисел, а также сумму этих чисел.
+
+        var number = 0,
+            sum = 0,
+            current = 0;
+       
+        do {
+            current = number;
+            number = +prompt("Введите число");
+            sum+=current;
+        } while (number != current);
+
+        alert(sum);
+        
+    </script>
+</body>
+
+</html>
