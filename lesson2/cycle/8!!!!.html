@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //      8) Вывести на экран столько элементов ряда Фибоначчи, сколько указал пользователь. Например, если на ввод поступило число 6, 
+        // то вывод должен содержать шесть первых чисел ряда Фибоначчи: 1 2 3 5 8 13.
+
+        var a1 = 1,
+            a2 = 1,
+            ax = 0;
+
+        for (var i = 0; i < 6; i++) {
+            ax = a1+a2;
+            a1 = a2;
+            a2 = ax;
+            console.log(ax);
+        }
+
+
+    </script>
+</body>
+
+</html>

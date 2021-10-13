@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        /*
+  4.Пользователь вводит подряд 20 разных чисел(ввод осуществляется всех чисел только в 1 переменную),нужно посчитать
+  сколько было инверсий. Пример:
+  5 2 5 3 6 4 8 9 2 4 1 6 8 5 4 7 9 7 1 5 = 9 инверсий, к примеру 5 2 - это инверсия то есть то число которое стоит
+  слева больше того числа которое справа.
+  */
+        var n, currnet=0, k=0;
+        for (var i = 0; i < 20; i++) {
+            n = +prompt("число");
+            if(currnet > n){
+                k++;
+            }
+            currnet = n;
+        }
+        alert(k)
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+//        4) Найти сумму и произведение цифр, введенного натурального числа. Например, если введено число 325,
+//  то сумма его цифр равна 10 (3+2+5), а произведение 30 (3*2*5).
+
+        var num, current = 0, sum = 0, multi = 1;
+
+        num = +prompt("введите число");
+
+        while (num) {
+            current= num % 10;
+            sum += current;
+            multi *= current;
+            num = parseInt(num / 10);
+        }
+        
+        alert('сумма всех чисел равно ' + sum +' ,а произведение '+ multi);
+
+    </script>
+</body>
+
+</html>
