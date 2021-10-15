@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 18. Дан прямоугольник с размерами a x b. От нег   
+
+        var min, max;
+
+        function getMinMax(x, y) {
+            min = Math.min(x, y),
+                max = Math.max(x, y);
+        }
+
+        function newSqr(a, b) {
+
+            var c;
+
+            getMinMax(a, b);
+
+            if (min == 1) {
+                console.log(max + ' квадраты с размером ' + min);
+            } else {
+
+                for (var i = 1; i * min < max; i++) {
+                    c = max - i * min
+
+                    if (min * (i + 1) > max) {
+                        break;
+                    }
+                }
+
+                console.log(i + ' квадраты с размером ' + min);
+
+                getMinMax(c, min);
+
+                for (var k = 1; k * min < max; k++) {
+                    c = max - k * min
+                    if (min * (k + 1) > max) {
+                        break;
+                    }
+                }
+
+                console.log('и ' + k + ' квадраты с размером ' + min);
+            }
+
+
+
+        }
+
+        newSqr(9, 2);
+    </script>
+</body>
+
+</html>

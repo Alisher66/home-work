@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 12.. Начав тренировки, лыжник в первый день пробежал 10 км. Каждый следующий день он увеличивал пробег на 10% от пробега предыдущего дня. Определить:
+        // а) в какой день он пробежит больше 20 км;
+        // б) в какой день суммарный пробег за все дни превысит 100 км.
+        
+        // var  start = 10;
+        // for(var i = 2; ; i++){
+        //     start = start*1.01;
+            
+        //     if(start>13){
+        //         console.log(i);
+        //         break;
+        //     }
+        // }
+
+        var i = 1, 
+            start = 10;
+            sum = start;
+
+        do{
+            start = start*1.01;
+            i++
+        } while(start<20)
+
+        do{
+            start = start*1.01;
+            sum+=start;
+            i++
+
+        } while(sum<100)
+
+        console.log(i);
+
+    </script>
+</body>
+
+</html>

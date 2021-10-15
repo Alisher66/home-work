@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 4. Дано натуральное число.Определить:
+        // а) количество цифр в нем;
+        // б) сумму его цифр;
+        // в) произведение его цифр;
+        // г) среднее арифметическое его цифр;
+        // д) сумму квадратов его цифр;
+        // е) сумму кубов его цифр;
+        // ж) его первую цифру;
+        // з) сумму его первой и последней цифр.
+
+        var number = +prompt('Введите число a'),
+            cur = 0,
+            i = 0,
+            sum = 0,
+            p = 1,
+            sqrSum = 0
+            firstNum = 0,
+            lastNum = number%10;
+            
+           
+
+        while(number >0){
+            cur = number%10;
+            sum+=cur;
+            i++;
+            p*= cur;
+            sqrSum += cur**2;
+
+            number = parseInt(number/10);
+            
+            if(number !=0){
+                firstNum = number;
+            }
+            cur = number;
+        }
+        alert("количество цифр = "+i);
+        alert("сумму его цифр = "+sum);
+        alert("произведение его цифр = "+p);
+        alert("среднее арифметическое его цифр = "+ sum/i);
+        alert("сумму квадратов его цифр = "+ sqrSum);
+        alert("сумму его первой и последней цифр = "+ (firstNum+lastNum));
+        
+        
+    </script>
+</body>
+
+</html>

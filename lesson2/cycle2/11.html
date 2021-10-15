@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 11. Гражданин 1 марта открыл счет в банке, вложив 1000 руб. Через каждый месяц размер вклада увеличивается на 2% от имеющейся суммы. Определить:
+        // а) за какой месяц величина ежемесячного увеличения вклада превысит 30 руб.;
+        // б) через сколько месяцев размер вклада превысит 1200 руб
+
+        var i = 0,
+            sum = 1000,
+            x = 0;
+
+
+
+        // while(x<30){
+        //     i++
+        //     sum = sum*1.02;
+        //     x = sum-1000
+        // }
+        // console.log(i);
+
+        while(sum<1200){
+            i++
+            sum = sum*1.02;
+        }
+        console.log(i);
+        
+    </script>
+</body>
+
+</html>

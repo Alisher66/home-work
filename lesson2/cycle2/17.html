@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //    17. Дан прямоугольник с размерами 425 х 131 . От него отрезают квадраты со стороной 131, пока это возможно. Затем от оставшегося прямоугольника вновь отрезают квадраты со стороной, равной 425 — 131·3 = 32, и т. д. На какие квадраты и в каком их количестве будет разрезан исходный прямоугольник?
+
+        var a = 20,
+            b = 3,
+            c = 0,
+            i = 0,
+            k = 0;
+
+        for (i = 1; i * b < a; i++) {
+            c = a - i * b
+
+            if (b * (i + 1) > a) {
+                break;
+            }
+        }
+
+        c = a - i * b;
+
+        if (c >= b) {
+            for (k = 1; k * c < b; k++) {
+
+                if (c * (k + 1) > b) {
+                    break;
+                }
+            }
+        } else k = 0;
+    
+
+
+
+
+        console.log(i);
+        console.log(k);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 8. Найти максимальное из натуральных чисел, не превышающих 5000, которое нацело делится на 39.
+
+
+        function showNum(max, d) {
+            var i = 1,
+                cur = 0;
+
+            while (cur < max) {
+                cur = d * i;
+                i++
+                if(d * i > max){
+                    break;
+                }
+            }
+
+            console.log(cur)
+        }
+
+
+        showNum(5000, 39);
+
+    </script>
+</body>
+
+</html>
