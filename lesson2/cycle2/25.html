@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //    25. Дано натуральное число. Определить сумму m его последних цифр. Если заданное число — менее чем m-значное, то «недостающие» цифры при решении задачи не обрабатывать.
+
+        function sumLastNumber(num, m) {
+            if (m > String(num).length) {
+                console.log('неверное m-значние')
+            }
+            else {
+                var sum = 0;
+                for(var i = m; i>0; i--){
+                    sum += num % 10;
+                    num = parseInt(num/10); 
+                }
+                console.log(sum);
+            }
+        }
+
+        sumLastNumber(1110987654321,7);
+    </script>
+</body>
+
+</html>

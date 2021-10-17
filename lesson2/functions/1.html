@@ -12,36 +12,55 @@
 
 
     <script>
-//        1) Напиши функцию создания генератора sequence(start, step). Она при вызове возвращает другую функцию-генератор, которая при каждом вызове дает число на 1 больше, и так до бесконечности.
-//  Начальное число, с которого начинать отсчет, и шаг, задается при создании генератора. Шаг можно не указывать, тогда он будет равен одному. Начальное значение по умолчанию равно 0. 
-// Генераторов можно создать сколько угодно.
-// var generator = sequence(10, 3);
-// var generator2 = sequence(7, 1);
+        //        1) Напиши функцию создания генератора sequence(start, step). Она при вызове возвращает другую функцию-генератор, которая при каждом вызове дает число на 1 больше, и так до бесконечности.
+        //  Начальное число, с которого начинать отсчет, и шаг, задается при создании генератора. Шаг можно не указывать, тогда он будет равен одному. Начальное значение по умолчанию равно 0. 
+        // Генераторов можно создать сколько угодно.
+        // var generator = sequence(10, 3);
+        // var generator2 = sequence(7, 1);
 
-// console.log(generator()); // 10
-// console.log(generator()); // 13
+        // console.log(generator()); // 10
+        // console.log(generator()); // 13
 
-// console.log(generator2()); // 7
+        // console.log(generator2()); // 7
 
-// console.log(generator()); // 16
+        // console.log(generator()); // 16
 
-// console.log(generator2()); // 8
+        // console.log(generator2()); // 8
 
-        
-    for(var i= 0; ; i++){
 
-    }
-        function sequence(start, step) {
-            var i = 0;
-             
+        // for(var i= 0; ; i++){
+
+        // }
+        // var i = -1;
+
+       
+
+        var sequence = function (start, step) {
+            var i =-1
+            return function () {
+                i++
+                console.log(start + step * i);
+            }
         }
 
         var generator = sequence(10, 3)
-        var generator2 = sequence(7, 1);
-
-        console.log(generator())
-        console.log(generator())
+        var generator2 = sequence(7, 1)
         
+
+        generator();
+        generator();
+        generator();
+        generator2()
+        generator();
+        generator2();
+        generator();
+        generator2()
+        
+
+
+
+
+
     </script>
 </body>
 

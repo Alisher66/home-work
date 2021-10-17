@@ -12,52 +12,52 @@
 
 
     <script>
-        // 18. Дан прямоугольник с размерами a x b. От нег   
+        //    18. Дан прямоугольник с размерами a x b. От него отрезают квадраты максимального размера, пока это возможно. Затем от оставшегося прямоугольника вновь отрезают квадраты максимально возможного размера и т. д. На какие квадраты и в каком их количестве будет разрезан исходный прямоугольник?
 
         var min, max;
 
         function getMinMax(x, y) {
             min = Math.min(x, y),
                 max = Math.max(x, y);
+
+            // if (x>y){
+            //     max = x;
+            //     min = y;
+            // } else {
+            //     max = y;
+            //     min = x;
+            // }
+
+            // (x > y) ? ( max = x, min = y ) : ( max = y, min = x )
         }
 
-        function newSqr(a, b) {
+        function showSqr(a, b) {
 
-            var c;
+            var newSide = 0;
 
-            getMinMax(a, b);
-
-            if (min == 1) {
-                console.log(max + ' квадраты с размером ' + min);
+            if (a == b) {
+                console.log('Это квадрат');
             } else {
+                do {
+                    getMinMax(a, b);
 
-                for (var i = 1; i * min < max; i++) {
-                    c = max - i * min
-
-                    if (min * (i + 1) > max) {
-                        break;
+                    for (var i = 1; i * min < max; i++) {
+                        newSide = max - i * min
+                        if (min * (i + 1) > max) {
+                            break;
+                        }
                     }
-                }
 
-                console.log(i + ' квадраты с размером ' + min);
+                    console.log(i + ' квадрат(a) с размером ' + min);
 
-                getMinMax(c, min);
+                    a = newSide;
+                    b = min;
 
-                for (var k = 1; k * min < max; k++) {
-                    c = max - k * min
-                    if (min * (k + 1) > max) {
-                        break;
-                    }
-                }
-
-                console.log('и ' + k + ' квадраты с размером ' + min);
+                } while (min != newSide)
             }
-
-
-
         }
 
-        newSqr(9, 2);
+        showSqr(8, 18);
     </script>
 </body>
 

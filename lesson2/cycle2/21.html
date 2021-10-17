@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 21. В некоторой стране используются денежные купюры достоинством в 1, 2, 4, 8, 16, 32 и 64. Дано натуральное число n. Как наименьшим количеством таких денежных купюр можно выплатить сумму n (указать количество каждой из используемых для выплаты купюр)? Предполагается, что имеется достаточно большое количество купюр всех достоинств.
+
+
+        function showMoney(money) {
+         
+            console.log('Для выплаты '+ money + ' используем купюры')  
+
+            var amount = 0,
+                i = 6;
+            do {
+                if (money / 2 ** i >= 1) {
+                    amount = parseInt(money / 2 ** i)
+                    money = money - amount * 2 ** i;
+
+                    console.log('купюра '+ 2**i+ ' ' +amount+'х');
+                }
+                i--;
+
+            } while (i >=0)
+
+        }
+        showMoney(1235)
+
+    </script>
+</body>
+
+</html>

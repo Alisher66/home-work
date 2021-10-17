@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //    24. Дано натуральное число. Определить номер цифры 3 в нем, считая от конца числа. Если такой цифры нет, ответом должно быть число 0, если таких цифр в числе несколько — должен быть определен номер самой правой из них.
+
+        function lastNumber(num) {
+            var size = String(num).length,
+                last = 0,
+                thirdNumer = parseInt(num / 100) % 10,
+                current = 0;
+
+            if (size < 3) {
+                console.log('0');
+            } else {
+
+                do {
+                    last = num % 10;
+
+                    if (last == thirdNumer) {
+                        current = size;
+                    }
+
+                    num = parseInt(num / 10);
+                    size--;
+
+                } while (num != 0)
+            }
+
+            console.log('- позиция '+current);
+        }
+
+        lastNumber(12333321);
+    </script>
+</body>
+
+</html>
