@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        
+        var num = 1848,
+            str = '';
+
+        for (var i = 2; num != 1; i++) {
+            for (var k = 1; num % i == 0; k++) {
+                if (num % i == 0) {
+                    num = num / i;
+                    str = `${i} ** ${k} `;
+                }
+            }
+            if (k != 1) {
+                console.log(str);
+            }
+        }
+
+        // var i = 2;
+
+        // do {
+        //     var k = 0;
+
+        //     while(num%i == 0){
+        //         k++;
+        //         num = num/i;
+        //         str = `${i} ** ${k} `;
+        //     }
+        //     if(k !=0){
+        //         console.log(str);
+        //     }
+        //     i++;
+
+        // } while (num != 1)
+        // console.log(i);
+    </script>
+</body>
+
+</html>
