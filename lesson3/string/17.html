@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 17) В переменной date лежит дата в формате '2025-12-31'. Преобразуйте эту дату в формат '31/12/2025'
+
+        var str = '2025-12-31';
+
+        var year = str.substring(0, 4),
+            month = str.substring(5, 7),
+            day = str.slice(str.length-2);
+
+        console.log(`${day}/${month}/${year}`);
+
+
+
+
+    </script>
+</body>
+
+</html>

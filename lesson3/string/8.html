@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //    8) Вводится ненормированная строка, у которой могут быть пробелы в начале, в конце и между словами более одного пробела. Привести ее к нормированному виду, т.е. удалить все пробелы в начале и конце, а между словами оставить только один пробел.
+
+
+
+        function showNormalStr(str) {
+            var arr = str.split(' '),
+                newarr = [];
+
+            for (var el of arr) {
+                if (el != '') {
+                    newarr.push(el);
+                }
+            }
+            console.log(newarr.join(' '));
+        }
+        
+        showNormalStr('asd asdasd     asd     asd 22 2 2    ');
+      
+
+    </script>
+</body>
+
+</html>
