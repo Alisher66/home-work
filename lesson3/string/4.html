@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //    4) Вводится строка. Требуется удалить из нее повторяющиеся символы и все пробелы. Например, если было введено "abc cde def", то должно быть выведено "abcdef".
+
+        //Get array or string without '' and ' ';
+        function getArr(arg) {
+            var tempArr = [];
+            for (var i = 0; i < arg.length; i++) {
+                if (arg[i] != '' && arg[i] != ' ') {
+                    tempArr.push(arg[i]);
+                }
+            }
+            return tempArr;
+        }
+
+        function showString(str) {
+            var arr = [],
+                newStr = '';
+
+            arr = getArr(str);
+
+            for (let k = 0; k < arr.length - 1; k++) {
+
+                for (let i = +(k + 1); i < arr.length; i++) {
+                    if (arr[k] == arr[i]) {
+                        arr[i] = '';
+                    }
+                }
+            }
+            newStr = getArr(arr).join('')
+            console.log(newStr);
+
+        }
+
+        showString('abc cde def fff asd a f23234 asd 222  44     4gg');
+    </script>
+</body>
+
+</html>

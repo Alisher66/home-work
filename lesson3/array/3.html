@@ -10,10 +10,17 @@
 
 <body>
 
-
     <script>
+        // 3) Дан массив [1, 2, 3]. Сделайте из него массив [3, 2, 1].
 
+        var arr1 = [1, 2, 3, 4, 5, 6],
+            arr2 = [];
+
+        for (var el of arr1) {
+            arr2.unshift(el);
+        }
         
+        console.log(arr2);
     </script>
 </body>
 

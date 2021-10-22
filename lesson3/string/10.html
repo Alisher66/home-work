@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 10) Посчитать количество строчных (маленьких) и прописных (больших) букв в введенной строке. Учитывать только английские буквы.
+
+        //Get array or string without '' and ' ';
+
+        function getArr(arg) {
+            var tempArr = [];
+            for (var i = 0; i < arg.length; i++) {
+                if (arg[i] != '' && arg[i] != ' ') {
+                    tempArr.push(arg[i]);
+                }
+            }
+            return tempArr;
+        }
+
+
+        function getUpperLow(str) {
+            var newStr = getArr(str).join('');
+
+            var upperCase = 0,
+                lowerCase = 0;
+
+            for (var el of newStr) {
+                if (el == el.toLowerCase()) {
+                    lowerCase++;
+                } else if (el == el.toUpperCase()) {
+                    upperCase++;
+                }
+            }
+            console.log(`${lowerCase} маленьких и ${upperCase} больших букв`);
+        }
+
+        getUpperLow('sd a  aasA AAA');
+    </script>
+</body>
+
+</html>

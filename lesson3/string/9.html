@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 9) Вводятся строки. Определить самую длинную строку и вывести ее номер на экран. Если самых длинных строк несколько, то вывести номера всех таких строк.
+
+
+
+      
+        function showMaxLength(str) {
+            var arr = str.split(' '),
+                max = 0,
+                res = '';
+            
+            for(var i in arr){
+                max = Math.max(max,arr[i].length);
+            }
+            
+            for(var k in arr){
+                if(arr[k].length == max){
+                    res+=`Элемент ${arr[k]} под индексом ${k}, `;
+                }
+            }
+
+            
+            console.log(res);
+        }
+
+        showMaxLength('asd 2333');
+      
+
+    </script>
+</body>
+
+</html>

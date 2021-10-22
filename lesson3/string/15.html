@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //    15) Дана строка 'Я-учу-javascript!'. Замените все дефисы на '!' с помощью глобального поиска и замены.
+
+        var str = 'я-учу-java-sc-ript!',
+            tempArr = [];
+
+        // for(var el of str){
+        //     if(el == '-'){
+        //         el = '!';
+        //         tempArr.push(el); 
+        //     } else{
+        //         tempArr.push(el);
+        //     }
+        // }
+        // str = tempArr.join('');
+        // console.log(str);
+
+        var newstr = str.replace(/-/gi, '!');
+        console.log(newstr);
+        
+        
+    </script>
+</body>
+
+</html>

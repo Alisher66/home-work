@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 5) Найти в строке указанную подстроку и заменить ее на новую. Строку, ее подстроку для замены и новую подстроку вводит пользователь.
+
+
+
+        function searchStr(str, search, replaceStr) {
+
+            var start = '',
+                end = '',
+                newStr = '';
+
+            start = str.slice(0, str.indexOf(search))
+            end = str.slice(str.indexOf(search) + search.length)
+            newStr = start + replaceStr + end
+
+
+            if (newStr.includes(search)) {
+                searchStr(newStr, search, replaceStr);
+            } else {
+                console.log(newStr);
+            }
+        }
+
+
+        searchStr('absdabddsa abs', 'abs', 'new1');
+    </script>
+</body>
+
+</html>

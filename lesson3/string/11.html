@@ -12,14 +12,11 @@
 
 
     <script>
-        //    14)  Дана строка 'я учу javascript!'. С помощью метода split запишите каждое слово этой строки в отдельный элемент массива.
+        //    11) Вводится строка, состоящая из слов, разделенных пробелами. Требуется посчитать количество слов в ней.
 
-        var str = 'я учу      javascript!',
-            arr = str.split(' ');
 
 
         //Get array or string without '' and ' ';
-
         function getArr(arg) {
             var tempArr = [];
             for (var i = 0; i < arg.length; i++) {
@@ -29,10 +26,17 @@
             }
             return tempArr;
         }
-        
-        arr = getArr(arr);
 
-        console.log(arr);
+        function getWords(str) {
+            var arr = str.split(' '),
+                newArr = [];
+
+            newArr = getArr(arr);
+
+            console.log(newArr.join(' ') + '\nсостойт из ' + newArr.length + ' слов');
+        }
+
+        getWords('asd asdd   asd   asdasd   aaa   a ab');
     </script>
 </body>
 

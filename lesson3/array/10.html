@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //  10) В одномерном массиве (заполнение массива случайными числами от -50 до 49) найти сумму отрицательных элементов. Если эта сумма меньше -100, то необходимо прибавить к ней минимальный положительный элемент.
+
+        var arr = [-50, -40, -5, -1, 1, 1, 2, 4, 5, 8, 10],
+            min=49, sum = 0;
+
+        for (el of arr) {
+            if (el < 0) {
+                sum += el;
+            } else {
+                min = Math.min(min, el);
+            }
+        }
+        if(sum<-100){
+            sum = sum+min;
+        }
+
+
+        alert(`${sum}, и ${min}`);
+    </script>
+</body>
+
+</html>
