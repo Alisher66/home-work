@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 16) Вывести элементы числового массива, которые больше, чем элементы, стоящие перед ними.
+        // Например, дан массив [3, 9, 8, 4, 5, 1]. Следует вывести числа 9 и 5, так как перед ними стоят соответственно числа 3 и 4, которые меньше их.
+
+
+
+
+        var arr = [3, 9, 8, 4, 5, 1];
+        console.log(arr);
+
+
+        function showEl(arr) {
+
+            for (var i = 0; i < arr.length - 1; i++) {
+                for (var k = i + 1; k < arr.length; k++) {
+                    if (arr[i] < arr[k]) {
+                        console.log(arr[i]);
+                        break;
+                    } else break;
+                }
+            }
+        }
+
+        showEl(arr);
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

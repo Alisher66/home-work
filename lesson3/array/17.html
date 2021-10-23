@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 17) Все элементы массива поделить на значение наибольшего элемента этого массива.
+
+
+
+
+        function getRandom(min, max, loop = 10) {
+            var tempArr = [],
+                rand;
+
+            for (var i = 0; i < loop; i++) {
+                rand = Math.floor(min + Math.random() * (max - min + 1));
+                tempArr.push(rand);
+            }
+            return tempArr;
+        }
+
+        function getMaxEl(arr) {
+            var maxEl = arr[0];
+
+            for (el of arr) {
+                maxEl = Math.max(maxEl, el);
+            }
+            return maxEl;
+        }
+
+        function divEl(arr, num) {
+            var tempArr = [];
+
+            if (num != 0) {
+                for (el of arr) {
+                    tempArr.push(+(el / num).toFixed(2));
+                }
+            }
+            else tempArr = 'на 0 делить нельзя';
+        
+            return tempArr;
+        }
+
+        var arr = getRandom(-30, 0);
+        console.log(arr);
+
+        var max = getMaxEl(arr);
+        console.log(max);
+
+        arr = divEl(arr, max)
+        console.log(arr);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

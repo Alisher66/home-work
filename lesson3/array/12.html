@@ -13,17 +13,44 @@
     <script>
         //  12) Заполнить массив из 10 элементов случайными числами в интервале [0..4] и определить, есть ли в нем одинаковые соседние элементы.
 
-        
-        
-        function getRandomNumber(max = 4) {
-            return parseInt(Math.random() * max+1)
-        }
-        function getArray(n) {
-            var arr = []
-            for(var i=0; i<n;i++){
-                arr.push(getRandomNumber());
+
+
+        // function getRandomNumber(max = 4) {
+        //     return parseInt(Math.random() * max + 1)
+        // }
+
+        function getRandom(loop, max) {
+            var tempArr = [],
+                rand;
+
+            for (var i = 0; i < loop; i++) {
+                rand = Math.floor(Math.random() * (max + 1));
+                tempArr.push(rand);
             }
+            return tempArr;
+        }
+
+        function getArray(n,max = 4) {
+
+            var arr = getRandom(n,max);
+            
             console.log(arr);
+
+            for (var i = 0; i < arr.length - 1; i = k) {
+                var cur = 1;
+
+                for (var k = i + 1; k < arr.length; k++) {
+
+                    // console.log(`${i} -- ${k}`)
+                    // console.log(`${arr[i]} -- ${arr[k]}`)
+
+                    if (arr[i] == arr[k]) cur++;    
+                    else break;
+                }
+                if (cur > 1) {
+                    console.log(`цифра ${arr[i]} повторяеться ${cur} - раза (в соседнем)`);
+                }
+            }
         }
 
         getArray(10);

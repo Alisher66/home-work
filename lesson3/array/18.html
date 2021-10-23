@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 18) Найти номер и значение первого положительного элемента массива.
+
+
+
+
+        function getRandom(min, max, loop = 10) {
+            var tempArr = [],
+                rand;
+
+            for (var i = 0; i < loop; i++) {
+                rand = Math.floor(min + Math.random() * (max - min + 1));
+                tempArr.push(rand);
+            }
+            return tempArr;
+        }
+
+        function getPosetivEl(arr) {
+            var el, i;
+            for (i in arr) {
+                if (arr[i] > 0) {
+                    el = arr[i];
+                    break;
+                }
+            }
+
+            if (el) {
+                console.log(`${el} - значение первого положительного элемента под индексом ${i}`);
+            } else console.log('Нет положительных чисел');
+        }
+
+        var arr = getRandom(-10, 10);
+        console.log(arr);
+
+        getPosetivEl(arr);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
