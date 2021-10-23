@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 23) Дан одномерный массив. Найти среднее арифметическое его элементов. Вывести на экран только те элементы массива, которые больше найденного среднего арифметического.
+
+
+        function getRandom(min, max, n = 10) {
+            var rand, tempArr = [];
+
+            for (var i = 0; i < n; i++) {
+                rand = Math.floor(min + Math.random() * (max - min + 1))
+                tempArr.push(rand);
+            }
+            return tempArr;
+        }
+
+        function showArithmetic(arr) {
+            var sum = 0;
+            for (el of arr) {
+                sum += el;
+            }
+            console.log(`сумма элементов массива равна ${sum}, среднее арифметическое его элементов  ${sum/arr.length}`);
+            return sum / arr.length;
+        }
+
+        function showNewArr(arr, num) {
+            var tempArr = [];
+
+            for(el of arr){
+                if(el >num) tempArr.push(el);
+            }
+            
+            console.log(tempArr);
+        }
+
+        var arr = getRandom(-10, 10);
+        console.log(arr);
+
+        var n = showArithmetic(arr);
+       
+        showNewArr(arr, n);
+        
+        
+    </script>
+</body>
+
+</html>

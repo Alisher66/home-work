@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 25) Получить среднее арифметическое всех чётных элементов массива, стоящих на нечётных местах.
+
+
+        function getRandom(min, max, n = 10) {
+            var rand, tempArr = [];
+
+            for (var i = 0; i < n; i++) {
+                rand = Math.floor(min + Math.random() * (max - min + 1))
+                tempArr.push(rand);
+            }
+            return tempArr;
+        }
+
+        function showArithmetic(arr) {
+            var sum = 0,
+                cur = 0;
+            for (var i = 0; i < arr.length; i++) {
+                if (i % 2 != 0 && arr[i] % 2 == 0) {
+                    sum+=arr[i];
+                    cur++;
+                }
+            }
+            console.log(`Количестов чётных элементов стоящих на нечётных местах по индесу = ${cur}, сумма его элементов = ${sum}, среднее арифметическое = ${sum/cur}`);
+        }
+
+
+        var arr = getRandom(-10, 10, 20);
+        console.log(arr);
+
+        showArithmetic(arr);
+    </script>
+</body>
+
+</html>

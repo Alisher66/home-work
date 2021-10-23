@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 24) Дан массив A вещественного типа, содержащий 20 положительных и отрицательных элементов. Сформировать массив B из положительных элементов массива A, имеющих четный индекс. Найти сумму квадратов элементов нового массива.
+
+
+        function getRandom(min, max, n = 10) {
+            var rand, tempArr = [];
+
+            for (var i = 0; i < n; i++) {
+                rand = Math.floor(min + Math.random() * (max - min + 1))
+                tempArr.push(rand);
+            }
+            return tempArr;
+        }
+
+        function getNewArr(arr) {
+            var newArr = [];
+            for (var i = 0; i < arr.length; i++) {
+                if (i % 2 == 0 && arr[i] > 0) {
+                    newArr.push(arr[i]);
+                }
+            }
+            return newArr;
+        }
+
+        function sumSqrOfArrEl(arr) {
+            var sum = 0;
+
+            for(el of arr){
+                sum += el**2;
+            }
+            console.log(`сумма квадратов элемента нового массива равна ${sum}`)
+        }
+
+        var arrA = getRandom(-10, 10, 20);
+        console.log(arrA);
+
+        var arrB = getNewArr(arrA);
+        console.log(arrB);
+
+        sumSqrOfArrEl(arrB);
+        
+    </script>
+</body>
+
+</html>

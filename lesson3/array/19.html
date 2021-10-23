@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 19) Дан массив, содержащий положительные и отрицательные числа. Заменить все элементы массива на противоположные по знаку.
+        // Например, задан массив [1, -5, 0, 3, -4]. После преобразования должно получиться [-1, 5, 0, -3, 4].
+
+
+        function getRandom(min, max, n = 10) {
+            var rand, tempArr = [];
+
+            for (var i = 0; i < n; i++) {
+                rand = Math.floor(min + Math.random() * (max - min + 1))
+                tempArr.push(rand);
+            }
+            return tempArr;
+        }
+
+        function getNegativeNum(arr) {
+            var newArr = [];
+            for(el of arr){
+                newArr.push(el*(-1));
+                
+            }
+            console.log(newArr);
+        }
+        
+        var arr = getRandom(-10,10);
+
+        console.log(arr);
+        
+        getNegativeNum(arr);
+
+       
+
+
+        
+    </script>
+</body>
+
+</html>
