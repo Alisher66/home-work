@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 21) Найти сумму тех элементов массива, которые одновременно имеют четные и отрицательные значения.
+        // Например, в массиве [3, -5, -2, 4, -8, 0] отрицательными четными элементами являются числа -2 и -8. Их сумма равна -10
+
+
+        function getRandom(min, max, n = 10) {
+            var rand, tempArr = [];
+
+            for (var i = 0; i < n; i++) {
+                rand = Math.floor(min + Math.random() * (max - min + 1))
+                tempArr.push(rand);
+            }
+            return tempArr;
+        }
+
+        function showNegativeSum(arr) {
+            
+            var sum = 0,
+                str = '';
+
+            for (el of arr) {
+                if (el < 0 && el % 2 == 0){
+                    sum += el;
+                    str+=(el);
+                }
+            }
+            console.log(str + ' = '+ sum);
+        }
+
+        var arr = getRandom(-10, 10);
+        console.log(arr);
+        
+        showNegativeSum(arr);
+
+    </script>
+</body>
+
+</html>
