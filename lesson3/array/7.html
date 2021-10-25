@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //  7) Найти максимальный элемент массива и его индекс (max_num   и   max_index).
+
+        function getRandom(min, max, n = 10) {
+            var rand, tempArr = [];
+
+            for (var i = 0; i < n; i++) {
+                rand = Math.floor(min + Math.random() * (max - min + 1))
+                tempArr.push(rand);
+            }
+            return tempArr;
+        }
+
+        var arr = getRandom(0, 10);
+        console.log(arr);
+        
+        showMax(arr);
+
+        function showMax(arr) {
+            var max = arr[0];
+
+            for(i in arr){
+                max = Math.max(max, arr[i]);
+            }
+
+            console.log(`максимальный элемент = ${max} под индексом ${arr.lastIndexOf(max)}`);
+        }
+
+    </script>
+</body>
+
+</html>

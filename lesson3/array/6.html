@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //  6)Дана квадратная матрица размером nxn. Найти минимальный элемент среди элементов, расположенных ниже главной диагонали, найти максимальный элемент, среди элементов расположенных выше побочной диагонали. Найденные минимальный и максимальный элементы поменять местами и вывести их индексы.
+
+        
+
+        function copyArr(arr) {
+            var tempArr = [], resArr = [];
+            for (el of arr) {
+                tempArr = el.slice();
+                resArr.push(tempArr);
+            }
+            return resArr;
+        }
+
+        function getRandomArr(n = 3, min = 1, max = 100) {
+            var rand, resultArr = [];
+
+            for (var i = 0; i < n; i++) {
+                var tempArr = [];
+                for (var k = 0; k < n; k++) {
+                    rand = Math.floor(min + Math.random() * (max - min + 1))
+                    tempArr.push(rand);
+                }
+                resultArr.push(tempArr);
+            }
+
+            return resultArr;
+        }
+
+        function showMin(arr) {
+            var min = arr[1][0];
+            for (var i = 0; i < arr.length; i++) {
+                for (var k = 0; k < i; k++) {
+                    min = Math.min(min, arr[i][k]);
+                    if (min == arr[i][k]) {
+                        indexMinI = i;
+                        indexMinK = k;
+                    }
+                }
+            }
+            console.log(`минимальный элемент среди элементов, расположенных ниже главной диагонали = ${min}`);
+            console.log(`Под индексом [${indexMinI}][${indexMinK}]`);
+        }
+
+        function showMax(arr) {
+            var max = arr[0][0];
+            for (var i = 0; i < arr.length; i++) {
+                for (var k = 0; k < arr[i].length - 1 - i; k++) {
+                    max = Math.max(max, arr[i][k]);
+                    if (max == arr[i][k]) {
+                        indexMaxI = i;
+                        indexMaxK = k;
+                    }
+                }
+            }
+            console.log(`максимальный элемент, среди элементов расположенных выше побочной диагонали = ${max}`);
+            console.log(`Под индексом [${indexMaxI}][${indexMaxK}]`);
+        }
+
+        function replaceEl(x1, y1, x2, y2, arr) {
+            var newArr = copyArr(arr);
+
+            var num1 = newArr[x1][y1],
+                num2 = newArr[x2][y2];
+
+            newArr[x1][y1] = num2;
+            newArr[x2][y2] = num1;
+
+            console.log(newArr);
+        }
+
+
+        var indexMinI, indexMinK, indexMaxI, indexMaxK;
+
+        var arr1 = getRandomArr(4);
+        console.log(arr1);
+
+        showMin(arr1);
+        showMax(arr1);
+
+        replaceEl(indexMinI, indexMinK, indexMaxI, indexMaxK, arr1);
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

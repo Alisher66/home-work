@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 26) Даны две квадратных таблицы чисел. Требуется построить третью, каждый элемент которой равен сумме элементов, стоящих на том же месте в 1-й и 2-й таблицах.
+
+
+
+
+        // var arr1 = [
+        //     [1, 2, 3],
+        //     [4, 5, 6],
+        //     [7, 8, 9],
+        // ];
+        // var arr2 = [
+        //     [1, 2, 3],
+        //     [4, 5, 6],
+        //     [7, 8, 9],
+        // ];
+
+        function getRandomArr(min, max, n = 3) {
+            var rand, resultArr = [];
+
+            for (var i = 0; i < n; i++) {
+                var tempArr = [];
+                for (var k = 0; k < n; k++) {
+                    rand = Math.floor(min + Math.random() * (max - min + 1))
+                    tempArr.push(rand);
+                }
+                resultArr.push(tempArr);
+            }
+
+            return resultArr;
+        }
+
+        var arr1 = getRandomArr(1, 100),
+            arr2 = getRandomArr(1, 100),
+            arr3 = [];
+
+        console.log(arr1);
+        console.log(arr2);
+
+        sumEl(arr1, arr2)
+
+
+        function sumEl(arr1, arr2) {
+
+            for (var i = 0; i < arr1.length; i++) {
+                var tempArr = [];
+                for (var k = 0; k < arr1[i].length; k++) {
+
+                    for (var x = i; x < arr2.length; x++) {
+                        for (var y = k; y < arr2[x].length; y++) {
+                            // console.log(`${arr1[i][k]} -- ${arr2[x][y]}`)
+                            // console.log(arr1[i][k] + arr2[x][y])
+                            tempArr.push(arr1[i][k] + arr2[x][y]);
+                            break;
+                        }
+                        break;
+                    }
+                }
+                arr3.push(tempArr);
+            }
+
+            console.log(arr3);
+        }
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 9) Дан двухмерный массив 7×7. Найти сумму модулей отрицательных нечетных элементов.
+
+
+        function getRandomArr(n = 7, min = -20, max = 20) {
+            var rand, tempArr = [];
+
+            for (var i = 0; i < n; i++) {
+                rand = Math.floor(min + Math.random() * (max - min + 1))
+                tempArr.push(rand);
+            }
+            return tempArr;
+        }
+
+        function getNewArr(m, n) {
+            var res = [];
+
+            var arr1 = getRandomArr(m),
+                arr2 = getRandomArr(n);
+
+            res.push(arr1);
+            res.push(arr2);
+
+            return res;
+        }
+
+        var arr = getNewArr(7, 8);
+        console.log(arr);
+
+        function showSumNegativEl(arr) {
+            var sum = 0;
+            for (el of arr) {
+                for (var i = 0; i < el.length; i++) {
+                    if (i % 2 != 0 && el[i] < 0) {
+                        sum += el[i];
+                    }
+                }
+            }
+            console.log(sum*-1);
+        }
+        showSumNegativEl(arr);
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

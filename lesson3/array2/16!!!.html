@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // 16) Дана матрица порядка n×m, все элементы которой различны. В каждой
+        // строке выбирается элемент с наименьшим значением, затем среди этих
+        // чисел выбирается наибольшее.Указать индексы элемента с найденным
+        // значением.
+
+
+        function getRandomArr(y, x, min = 0, max = 10) {
+            var rand, res = [];
+
+            for (var i = 0; i < y; i++) {
+                var tempArr = [];
+                for (var k = 0; k < x; k++) {
+                    rand = Math.floor(min + Math.random() * (max - min + 1))
+                    tempArr.push(rand);
+                }
+                res.push(tempArr);
+            }
+            return res;
+        }
+
+
+
+
+
+
+        // function someFun(arr) {
+
+        //     for (var i = 0; i < arr.length; i++) {
+        //         var min = arr[i][0], str = '';
+        //         for (var k = 0; k < arr[i].length; k++) {
+        //             min = Math.min(min, arr[i][k]);
+        //             if(min == arr[i][k]) str = `${i}${k}`;
+        //         }
+        //         console.log(min);
+        //         console.log(str);
+        //     }
+
+        // }
+
+        var arr1 = getRandomArr(3, 3);
+        console.log(arr1);
+
+        // someFun(arr1);
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

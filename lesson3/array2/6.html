@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //         6) Задан целочисленный массив.Определить, образуют ли значения его
+        // элементов арифметическую прогрессию.Если «да» – вывести разность
+        //         прогрессии, если «нет» – ответ «не образуют».
+
+        var arr1 = [1, 3, 5, 7, 9, 11, 13, 15];
+
+        function someFun(arr) {
+            var isArProgression = false;
+            for (var i = 0; i < arr.length-2; i++) {
+                if (arr[i + 1] - arr[i] == arr[i + 2] - arr[i + 1]) {
+                    isArProgression = true;
+                } else{
+                    isArProgression = false;
+                    break;
+                } 
+            }
+            console.log('арифметическая прогрессия ' + isArProgression);
+        }
+        console.log(arr1);
+        someFun(arr1);
+
+    </script>
+</body>
+
+</html>

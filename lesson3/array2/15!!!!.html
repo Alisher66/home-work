@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // 14) Дана целочисленная матрица размера M × N, элементы которой могут
+        // принимать значения от 0 до 100. Различные строки матрицы назовем
+        // похожими, если совпадают множества чисел, встречающихся в этих
+        // строках. Найти количество строк, похожих на первую строку данной
+        // матрицы.
+
+
+        function getRandomArr(y, x, min = 0, max = 4) {
+            var rand, res = [];
+
+            for (var i = 0; i < y; i++) {
+                var tempArr = [];
+                for (var k = 0; k < x; k++) {
+                    rand = Math.floor(min + Math.random() * (max - min + 1))
+                    tempArr.push(rand);
+                }
+                res.push(tempArr);
+            }
+            return res;
+        }
+
+
+
+
+        
+
+        function someFun(arr) {
+
+          
+        }
+
+        var arr1 = getRandomArr(5, 5);
+        console.log(arr1);
+
+        someFun(arr1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

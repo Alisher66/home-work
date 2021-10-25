@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 10) В матрице А(4-строки,3-столбца) поменять местамаи нибольшие элементы в первом и третьем столбцах.
+
+
+        function getRandomArr(y, x, min = -100, max = 100) {
+            var rand, res = [];
+
+            for (var i = 0; i < y; i++) {
+                var tempArr = [];
+                for (var k = 0; k < x; k++) {
+                    rand = Math.floor(min + Math.random() * (max - min + 1))
+                    tempArr.push(rand);
+                }
+                res.push(tempArr);
+            }
+            return res;
+        }
+
+        function copyArr(arr) {
+            var temparr = [], resArr = [];
+            for (el of arr) {
+                temparr = el.slice();
+                resArr.push(temparr);
+            }
+            return resArr;
+        }
+
+        function replaceMaxEl(arr, row1, row2) {
+
+            var max1 = arr[row1 - 1][0],
+                max2 = arr[row2 - 1][0],
+                index1,
+                index2;
+
+            for (var i = 0; i < arr.length; i++) {
+                for (var k = 0; k < arr[i].length; k++) {
+                    if (i == row1 - 1) {
+                        max1 = Math.max(max1, arr[i][k]);
+                        if (max1 == arr[i][k]) index1 = k;
+                    } else if (i == row2 - 1) {
+                        max2 = Math.max(max2, arr[i][k]);
+                        if (max2 == arr[i][k]) index2 = k;
+                    }
+                }
+            }
+
+            console.log(`макс элемент ${row1}-го ряда ${max1} под индексом ${index1}`);
+            console.log(`макс элемент ${row2}-го ряда ${max2} под индексом ${index2}`);
+
+            var newArr = copyArr(arr);
+
+            newArr[row2 - 1][index2] = max1;
+            newArr[row1 - 1][index1] = max2;
+
+            console.log(newArr);
+        }
+
+
+        var arr1 = getRandomArr(4, 3);
+        console.log(arr1);
+
+        replaceMaxEl(arr1, 1, 3);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

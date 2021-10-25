@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //  ) Отсортировать по возрастанию элементов последней строки целочисленный двухмерный массив 3×4.
+
+
+        function getRandomArr(n = 3, min = -20, max = 20) {
+            var rand, tempArr = [];
+
+            for (var i = 0; i < n; i++) {
+                rand = Math.floor(min + Math.random() * (max - min + 1))
+                tempArr.push(rand);
+            }
+            return tempArr;
+        }
+
+        function getNewArr(m, n) {
+            var res = [];
+
+            var arr1 = getRandomArr(m),
+                arr2 = getRandomArr(n);
+
+            res.push(arr1);
+            res.push(arr2);
+
+            return res;
+        }
+
+        var arr1 = getNewArr(3, 4);
+        console.log(arr1);
+
+        var arr2 = sortArr(arr1[1]);
+        console.log(arr2);
+
+
+        function sortArr(arr) {
+            var cur = 0;
+            tempArr = arr.slice();
+
+            for (var i = 0; i < tempArr.length; i++) {
+
+                for (var k = i + 1; k < tempArr.length; k++) {
+                    if (tempArr[i] > tempArr[k]) {
+                        cur = tempArr[i];
+                        tempArr[i] = tempArr[k];
+                        tempArr[k] = cur;
+                    }
+                }
+
+            }
+            return tempArr;
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

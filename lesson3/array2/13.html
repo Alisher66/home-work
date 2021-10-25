@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // 13) Сформируйте массив L(I,J) с помощью датчика случайных чисел. Увеличить каждый элемент массива в 3 раза и поменяйте знак на противоположный. Массив выведите на экран в виде таблицы
+
+
+        function getRandomArr(y, x, min = 0, max = 9) {
+            var rand, res = [];
+
+            for (var i = 0; i < y; i++) {
+                var tempArr = [];
+                for (var k = 0; k < x; k++) {
+                    rand = Math.floor(min + Math.random() * (max - min + 1))
+                    tempArr.push(rand);
+                }
+                res.push(tempArr);
+            }
+            return res;
+        }
+
+        function copyArr(arr) {
+            var temparr = [], resArr = [];
+            for (el of arr) {
+                temparr = el.slice();
+                resArr.push(temparr);
+            }
+            return resArr;
+        }
+
+        function multiplyBy(arr, number) {
+            var temparr = copyArr(arr);
+
+            for (var k = 0; k < temparr.length; k++) {
+                for (var i = 0; i < temparr[k].length; i++) {
+                    temparr[k][i] = temparr[k][i] * number;
+                }
+            }
+            return temparr;
+        }
+
+        var arr1 = getRandomArr(2, 2);
+        console.log(arr1);
+
+        arr2 = multiplyBy(arr1,-3);
+        console.log(arr2);
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

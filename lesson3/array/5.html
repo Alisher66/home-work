@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //  5) Дана квадратная матрица. Проверить, является ли она симметричной относительно главной диагонали.
+
+
+        function getRandomArr(min, max, n = 3) {
+            var rand, resultArr = [];
+
+            for (var i = 0; i < n; i++) {
+                var tempArr = [];
+                for (var k = 0; k < n; k++) {
+                    rand = Math.floor(min + Math.random() * (max - min + 1))
+                    tempArr.push(rand);
+                }
+                resultArr.push(tempArr);
+            }
+
+            return resultArr;
+        }
+
+
+
+        var arr1 = getRandomArr(1, 3);
+
+        // var arr1 = [
+        //     [1, 3, 8],
+        //     [3, 6, 7],
+        //     [8, 7, 10],
+        // ];
+        // var arr1 =[
+        //     [1, 3, 8, 4],
+        //     [3, 6, 7, 5],
+        //     [8, 7, 9, 1],
+        //     [4, 5, 1, 4]
+        //     ];
+
+        console.log(arr1);
+
+        function isSymmetric(arr) {
+            var symmetric = 1;
+            for (var i = 0; i < arr.length; i++) {
+                for (var k = 0; k < arr[i].length; k++) {
+                    if (arr[i][k] == arr[k][i]) {
+                        symmetric *= 1;
+                    } else {
+                        symmetric *= 0;
+                    }
+                }
+            }
+            console.log(Boolean(symmetric) + ' => симметрично относительно главной диагонали ');
+        }
+
+        isSymmetric(arr1);
+
+    </script>
+</body>
+
+</html>

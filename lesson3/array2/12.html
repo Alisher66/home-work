@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // 12) Дана целочисленная матрица А[n,m]. Посчитать количество элементов матрицы, превосходящих среднее арифметическое значение элементов матрицы. Принять n=4, m=5.
+
+
+        function getRandomArr(y, x, min = 0, max = 9) {
+            var rand, res = [];
+
+            for (var i = 0; i < y; i++) {
+                var tempArr = [];
+                for (var k = 0; k < x; k++) {
+                    rand = Math.floor(min + Math.random() * (max - min + 1))
+                    tempArr.push(rand);
+                }
+                res.push(tempArr);
+            }
+            return res;
+        }
+
+        function arithmeticNum(arr) {
+            var sum = 0, count = 0;
+
+            for (el of arr) {
+                for (num of el) {
+                    sum += num;
+                    count++;
+                }
+            }
+            console.log(`сумма равана ${sum}, количестов элементов ${count}`);
+            console.log(`среднее арифметическое значение =  ${(sum / count).toFixed(2)}`);
+
+            return (sum / count).toFixed(2);
+        }
+
+        function showNum(arr, number) {
+            var count = 0, str = '';
+            
+            for (el of arr) {
+                for (num of el) {
+                    if(num >number){
+                        count++;
+                        str += `${num} `;
+                    }
+                }
+            }
+            
+            console.log(`элементы матрицы превосходящие ${number} => ${str}, количество = ${count}`);
+        }
+
+
+        var arr1 = getRandomArr(3, 4);
+        console.log(arr1);
+
+        var num1 = arithmeticNum(arr1)
+
+        showNum(arr1, num1);
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
