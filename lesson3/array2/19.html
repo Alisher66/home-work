@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // 19) Дан двухмерный массив, содержащий 8 строк и 8 столбцов. Элементами
+        // массива являются целые числа. Упорядочить массив по возрастанию
+        // элементов побочной диагонали.
+
+
+
+        function randomNumber(min = 0, max = 9) {
+            var num = Math.floor(min + Math.random() * (max - min + 1));
+            return num;
+        }
+
+        function getRandomArr(n) {
+            var rand, res = [], arrAll = [];
+
+            for (var i = 0; i < n; i++) {
+                var tempArr = [];
+                for (var k = 0; k < n; k++) {
+                    rand = randomNumber();
+                    tempArr.push(rand);
+                }
+                res.push(tempArr);
+            }
+            return res;
+        }
+
+        function copyArr(arr) {
+            var temparr = [], resArr = [];
+            for (el of arr) {
+                temparr = el.slice();
+                resArr.push(temparr);
+            }
+            return resArr;
+        }
+
+        function sortArr(arr) {
+            var cur = 0;
+            tempArr = arr.slice();
+
+            for (var i = 0; i < tempArr.length; i++) {
+                for (var k = i + 1; k < tempArr.length; k++) {
+                    if (tempArr[i] < tempArr[k]) {
+                        cur = tempArr[i];
+                        tempArr[i] = tempArr[k];
+                        tempArr[k] = cur;
+                    }
+                }
+
+            }
+            return tempArr;
+        }
+
+        function sortByDiagonal(arr) {
+            
+            var newArr = copyArr(arr);
+            var cur, arrD = [];
+
+            for (var i = 0; i < newArr.length; i++) {
+                for (var k = newArr.length - 1 - i; k >= 0; k--) {
+                    arrD.push(newArr[i][k]);
+                    break;
+                }
+            }
+
+            arrD = sortArr(arrD)
+
+            for (var i = 0; i < newArr.length; i++) {
+                for (var k = newArr.length - 1 - i; k >= 0; k--) {
+                    newArr[i][k] = arrD[i];
+                    break;
+                }
+            }
+
+            console.log(newArr);
+        }
+
+        var arr1 = getRandomArr(5);
+        console.log(arr1);
+
+
+        sortByDiagonal(arr1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

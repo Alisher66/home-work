@@ -51,6 +51,14 @@
                 console.log(`максимум ${+el + 1} строки равна ${max}`);
             }
         }
+        function maxLengthIndex(arr) {
+            var max = 0, index;
+            for (i in arr) {
+                max = Math.max(max, arr[i].length)
+                if (max == arr[i].length) index = i;
+            }
+            return index;
+        }
 
         function someFun(arr) {
             var index = maxLengthIndex(arr);
@@ -71,16 +79,31 @@
             } while (z < arr[index].length)
         }
 
-        function maxLengthIndex(arr) {
-            var max = 0, index;
-            for (i in arr) {
-                max = Math.max(max, arr[i].length)
-                if (max == arr[i].length) index = i;
-            }
-            return index;
-        }
+        // function someFun(arr) {
+        //     var index = maxLengthIndex(arr);
+        //     var res = [];
+        //     for (var k = 0; k < arr[index].length; k++) {
+        //         var tempArr = [];
+        //         for (var i = 0; i < arr.length; i++) {
+        //             if (arr[i][k] != undefined) {
+        //                 tempArr.push(arr[i][k]);
+        //             }
+        //         }
+        //         res.push(tempArr);
+        //     }
 
-        var arr1 = getNewArr(3, 4);
+        //     for (var i = 0; i < res.length; i++) {
+        //         var sum = 0;
+        //         for (var k = 0; k < res[i].length; k++) {
+        //             sum += res[i][k];
+        //         }
+        //         sum = sum / res[i].length;
+        //         console.log(`среднее арифметическое ${+i + 1} - го столбца = ${sum}`);
+        //     }
+        // }
+
+
+        var arr1 = getNewArr(4, 3);
         console.log(arr1);
 
         showMinMax(arr1);

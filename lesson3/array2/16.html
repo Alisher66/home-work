@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // 16) Дана матрица порядка n×m, все элементы которой различны. В каждой
+        // строке выбирается элемент с наименьшим значением, затем среди этих
+        // чисел выбирается наибольшее.Указать индексы элемента с найденным
+        // значением.
+
+
+
+        function randomNumber(min = 0, max = 100) {
+            var num = Math.floor(min + Math.random() * (max - min + 1));
+            return num;
+        }
+
+        function getRandomArr(y, x) {
+            var rand, res = [], arrAll = [];
+
+            for (var i = 0; i < y; i++) {
+                var tempArr = [];
+                for (var k = 0; k < x; k++) {
+                    rand = randomNumber(0, x * y)
+                    if (!arrAll.includes(rand)) {
+                        tempArr.push(rand);
+                        arrAll.push(rand);
+                    } else k--;
+                }
+                res.push(tempArr);
+            }
+            return res;
+        }
+
+
+        function someFun(arr) {
+            var tempArr = [], indexK, indexI;
+            for (var i = 0; i < arr.length; i++) {
+                var min = arr[i][0];
+                for (var k = 0; k < arr[i].length; k++) {
+                    min = Math.min(min, arr[i][k]);
+                    if (min == arr[i][k]){
+                        indexI = i;
+                        indexK = k;
+                    } 
+                }
+                tempArr.push([min, `[${indexI}][${indexK}]`]);
+
+                console.log(`${i+1} - строке наименьшее число = ${min}`);
+            }
+            // console.log(tempArr)
+
+            showMax(tempArr);
+        }
+
+        function showMax(arr) {
+            var max = arr[0][0], inI;
+
+            for (var i = 0; i < arr.length; i++) {
+                for (var k = 0; k < arr[i].length; k++) {
+                    if (typeof (arr[i][k]) == 'number') {
+                        max = Math.max(max, arr[i][k])
+                        if(max == arr[i][k]){
+                            inI = i;
+                        }
+                    }
+                }
+            }
+            console.log(`cреди этих чисел наибольшее ${max} под индексом ${arr[inI][1]}`);
+        }
+        
+        
+
+        var arr1 = getRandomArr(4, 5);
+        console.log(arr1);
+
+        someFun(arr1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

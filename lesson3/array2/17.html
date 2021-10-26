@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // 17) Дано число n. Создайте массив int A[n][n], и заполните его по следующему правилу: числа на диагонали, идущей из правого верхнего в левый
+        // нижний угол равны 1; числа, стоящие выше этой диагонали, равны 0;
+        // числа, стоящие ниже этой диагонали, равны 2.
+        // 0 0 0 1
+        // 0 0 1 2
+        // 0 1 2 2
+        // 1 2 2 2
+
+
+
+        // function randomNumber(min = 0, max = 100) {
+        //     var num = Math.floor(min + Math.random() * (max - min + 1));
+        //     return num;
+        // }
+
+        function getRandomArr(n) {
+            var rand, res = [], arrAll = [];
+
+            for (var i = 0; i < n; i++) {
+                var tempArr = [];
+                for (var k = 0; k < n; k++) {
+                    rand = 0
+                    tempArr.push(rand);
+                }
+                res.push(tempArr);
+            }
+            return res;
+        }
+
+        function fillArr(arr) {
+            for(var i = 0; i<arr.length; i++){
+                for(var k = i; k<arr[i].length; k++){
+                    if(i == k) {
+                        arr[i][k] = 1;
+                    } else {
+                        arr[i][k] = 2;
+                    }
+                }
+            }
+            console.log(arr.reverse());
+        }
+      
+
+        var arr1 = getRandomArr(5);
+        fillArr(arr1);
+
+        
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

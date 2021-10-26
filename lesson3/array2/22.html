@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        //         22) Дана матрица N×M, состоящая из натуральных чисел. Выбрать в строках
+        // самые левые наименьшие элементы и поставить их в первый столбец.
+
+
+        function randomNumber(min = 0, max = 100) {
+            var num = Math.floor(min + Math.random() * (max - min + 1));
+            return num;
+        }
+
+        function getRandomArr(n, m) {
+            var rand, res = [];
+
+            for (var i = 0; i < n; i++) {
+                var tempArr = [];
+                for (var k = 0; k < m; k++) {
+                    rand = randomNumber();
+                    tempArr.push(rand);
+                }
+                res.push(tempArr);
+            }
+            return res;
+        }
+
+        function copyArr(arr) {
+            var temparr = [], resArr = [];
+            for (el of arr) {
+                temparr = el.slice();
+                resArr.push(temparr);
+            }
+            return resArr;
+        }
+
+        function showNewArr(arr) {
+            var newArr = copyArr(arr);
+
+            for (var i = 0; i < newArr.length; i++) {
+                var min = newArr[i][0], indexK, cur;
+                for (var k = newArr[i].length - 1; k >= 0; k--) {
+                    min = Math.min(min, newArr[i][k]);
+                    if (min == newArr[i][k]) indexK = k;
+                }
+                cur = min;
+                newArr[i][indexK] = newArr[i][0];
+                newArr[i][0] = cur;
+            }
+
+            console.log(newArr);
+
+        }
+
+        var arr1 = getRandomArr(3, 4);
+        console.log(arr1);
+
+        showNewArr(arr1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

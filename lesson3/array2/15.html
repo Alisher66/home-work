@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // 15) Дана матрица размера 5×10. Вывести количество столбцов, элементы
+        // которых монотонно убывают
+
+
+        function getRandomArr(y, x, min = 0, max = 100) {
+            var rand, res = [];
+
+            for (var i = 0; i < y; i++) {
+                var tempArr = [];
+                for (var k = 0; k < x; k++) {
+                    rand = Math.floor(min + Math.random() * (max - min + 1))
+                    tempArr.push(rand);
+                }
+                res.push(tempArr);
+            }
+            return res;
+        }
+
+        
+
+        function someFun(arr) {
+            var isDecrease = false;
+            for (var k = 0; k < arr[0].length; k++) {
+                for (var i = 1; i < arr.length; i++) {
+                    if (arr[i - 1][k] > arr[i][k]) {
+                        isDecrease = true;
+                    } else {
+                        isDecrease = false;
+                        break
+                    }
+                }
+                if(isDecrease){
+                    console.log(`${k+1} - столбец монотонно убывающий`);
+                }
+            }
+        }
+
+        var arr1 = getRandomArr(3, 10);
+        console.log(arr1);
+
+        someFun(arr1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

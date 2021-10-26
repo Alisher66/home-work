@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        //      25) Дан массив А[3][3]. Найти строку, сумма элементов которой минимальна,и умножить на минимальную сумму каждый элемент матрицы.
+
+
+        function randomNumber(min = 0, max = 10) {
+            var num = Math.floor(min + Math.random() * (max - min + 1));
+            return num;
+        }
+
+        function getRandomArr(n, m) {
+            var rand, res = [];
+
+            for (var i = 0; i < n; i++) {
+                var tempArr = [];
+                for (var k = 0; k < m; k++) {
+                    rand = randomNumber();
+                    tempArr.push(rand);
+                }
+                res.push(tempArr);
+            }
+            return res;
+        }
+
+        function copyArr(arr) {
+            var temparr = [], resArr = [];
+            for (el of arr) {
+                temparr = el.slice();
+                resArr.push(temparr);
+            }
+            return resArr;
+        }
+
+
+        function getMinSum(arr) {
+            var tempArr = [];
+            for (var i = 0; i < arr.length; i++) {
+                var sum = 0;
+                for (var k = 0; k < arr[i].length; k++) {
+                    sum += arr[i][k];
+                }
+                tempArr.push(sum);
+            }
+
+            min = tempArr[0];
+            for (el of tempArr) {
+                min = Math.min(min, el);
+            }
+
+            return min;
+        }
+
+        function multiplyBy(arr, number) {
+            var tempArr = copyArr(arr);
+
+            for (var k = 0; k < tempArr.length; k++) {
+                for (var i = 0; i < tempArr[k].length; i++) {
+                    tempArr[k][i] = tempArr[k][i] * number;
+                }
+            }
+            console.log(tempArr);
+        }
+
+        var arr1 = getRandomArr(3, 3);
+        console.log(arr1);
+
+        var minInRow = getMinSum(arr1);
+        console.log(minInRow);
+
+        multiplyBy(arr1, minInRow);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
