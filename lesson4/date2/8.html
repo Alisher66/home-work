@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // 8) Напишите сценарий, который по дате рождения человека определяет, под каким знаком зодиака родился человек.
+
+        // Козерог: 20 января — 16 февраля
+        // Водолей: 16 февраля — 11 марта
+        // Рыбы: 11 марта — 18 апреля
+        // Овен: 18 апреля — 13 мая
+        // Телец: 13 мая — 21 июня
+        // Близнецы: 21 июня — 20 июля
+        // Рак: 20 июля — 10 августа
+        // Лев: 10 августа — 16 сентября
+        // Дева: 16 сентября — 30 октября
+        // Весы: 30 октября — 23 ноября
+        // Скорпион: 23 ноября — 29 ноября
+        // Змееносец: 29 ноября — 17 декабря
+        // Стрелец: 17 декабря — 20 января
+
+
+        var birthday = new Date(1994, 3, 29);
+        console.log(birthday);
+
+        function showZodiacSing(date) {
+            var day = date.getDate(),
+                month = date.getMonth();
+
+            if ((month == 0 && day >= 20) || (month == 1 && day < 16)) {
+                console.log("Вы Козерог");
+            } else if ((month == 1 && day >= 16) || (month == 2 && day < 11)) {
+                console.log("Вы Водолей");
+            } else if ((month == 2 && day >= 11) || (month == 3 && day < 18)) {
+                console.log("Вы Рыбы");
+            } else if ((month == 3 && day >= 18) || (month == 4 && day < 13)) {
+                console.log("Вы Овен");
+            } else if ((month == 4 && day >= 13) || (month == 5 && day < 21)) {
+                console.log("Вы Телец");
+            } else if ((month == 5 && day >= 21) || (month == 6 && day < 20)) {
+                console.log("Вы Близнецы");
+            } else if ((month == 6 && day >= 20) || (month == 7 && day < 10)) {
+                console.log("Вы Рак");
+            } else if ((month == 7 && day >= 10) || (month == 8 && day < 16)) {
+                console.log("Вы Лев");
+            } else if ((month == 8 && day >= 16) || (month == 9 && day < 30)) {
+                console.log("Вы Дева");
+            } else if ((month == 9 && day >= 30) || (month == 10 && day < 23)) {
+                console.log("Вы Весы");
+            } else if ((month == 10 && day >= 23) || (month == 10 && day < 29)) {
+                console.log("Вы Скорпион");
+            } else if ((month == 10 && day >= 29) || (month == 11 && day < 17)) {
+                console.log("Вы Змееносец");
+            } else if ((month == 11 && day >= 17) || (month == 0 && day < 20)) {
+                console.log("Вы Стрелец");
+            }
+            
+        }
+        showZodiacSing(birthday);
+
+    </script>
+</body>
+
+</html>

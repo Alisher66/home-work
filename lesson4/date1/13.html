@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+
+        //  13) Есть дата например 31.12.2013. Реализуйте средствами языка JavaScript скрипт, который будет вычислять сколько осталось дней, месяцев, лет до этой даты.
+
+
+        function getDifference(year, month, day = 0) {
+            var date = new Date(year, month - 1, day),
+                now = new Date();
+
+            var day = Math.floor((Math.abs(date.getTime() - now.getTime())) / 1000 / 3600 / 24),
+                month = Math.floor((Math.abs(date.getTime() - now.getTime())) / 1000 / 3600 / 24 / 31),
+                year = Math.floor((Math.abs(date.getTime() - now.getTime())) / 1000 / 3600 / 24 / 31 / 12);
+
+
+            if (Math.abs(year) != 0) {
+                month = month % 12;
+            }
+            if (Math.abs(month) != 0) {
+                day = day % 31;
+            }
+            
+            
+
+            if (date.getTime() > now.getTime()) {
+                console.log(`Это будущее, наступает через ${day}- дней, ${month}-месяцев, ${year}-лет`);
+            } else {
+                console.log(`Это прошлое, прошло  ${day}- дней, ${month}-месяцев, ${year}-лет`);
+            }
+        }
+
+        getDifference(2021,10,26);
+
+
+    </script>
+</body>
+
+</html>

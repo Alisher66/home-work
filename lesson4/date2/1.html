@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // 1) Создать в одной функции часы в окне документа в 24 часовом формате, а также вывести текущую дату, указав название месяца на русском языке.
+
+
+
+
+        var month = [
+            'январь',
+            'февраль',
+            'март',
+            'апрель',
+            'май',
+            'июнь',
+            'июль',
+            'август',
+            'сентябрь',
+            'октябрь',
+            'ноябрь',
+            'декабрь',
+        ];
+
+
+        function showDate() {
+            var now = new Date();
+
+            hours = now.getHours();
+            minutes = now.getMinutes();
+
+            if (hours<10){
+                hours = '0' + hours;
+            }
+            if (minutes<10){
+                minutes = '0' + minutes;
+            }
+
+            console.log(`${hours}:${minutes}, ${now.getDate()}-${month[now.getMonth()]} ${now.getFullYear()} `);
+
+        }
+
+        showDate();
+    </script>
+</body>
+
+</html>

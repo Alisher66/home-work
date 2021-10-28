@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // 5) Напишите сценарий, который для заданной даты определяет, сколько дней прошло после некоторого события.
+
+        var date = new Date(2021, 10, 20, 21, 30);
+        console.log(date);
+
+        function showDate(date) {
+            var now = new Date();
+
+            var dif = Math.floor((Math.abs(now.getTime() - date.getTime())) / 1000 / 3600 / 24);
+
+            if (date < now) {
+                console.log(`прошло ${dif} дней от заданной даты`)
+            } else {
+                console.log(`${dif} дня до наступление заданной даты`)
+            }
+        }
+
+        showDate(date);
+
+
+
+
+
+    </script>
+</body>
+
+</html>

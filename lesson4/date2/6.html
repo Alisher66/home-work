@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // 6) Напишите сценарий, который рассчитывает, сколько рабочих и выходных дней между двумя заданными датами.
+
+        var start = new Date(2021, 9, 1),
+            end = new Date(2021, 9, 30);
+
+        console.log(start);
+        console.log(end);
+
+        function getDays(dateA, dateB) {
+
+            var i = 0, k = 0;
+            do {
+
+                if (dateA.getDay() == 0) {
+                    i++;
+                } else {
+                    k++
+                }
+
+                dateA.setDate(dateA.getDate() + 1);
+
+            } while (dateA < dateB);
+
+            console.log(`${i} выходных и ${k} рабочих дней`)
+        }
+
+        getDays(start, end);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // 4) Напишите сценарий, который по заданному времени определяет количество минут, прошедших от начала текущего занятия.
+
+        var date = new Date(2021, 9, 28, 21, 30);
+        console.log(date);
+        function showMinutes(date) {
+            var now = new Date();
+
+            var dif = Math.floor((Math.abs(now.getTime() - date.getTime())) / 1000 / 60);
+            
+            if(date<now){
+                console.log(`прошло ${dif} минуты от заданной даты`)
+            }else{
+                console.log(`${dif} минуты до наступление заданной даты`)
+            }
+        }
+
+        showMinutes(date);
+
+
+
+
+
+    </script>
+</body>
+
+</html>

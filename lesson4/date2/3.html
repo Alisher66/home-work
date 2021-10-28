@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // 3) Написать скрипт,  в какие месяцы года 13 число попадает на пятницу?
+
+        var date = new Date(1970, 0, 13),
+            now = new Date();
+
+        
+        do {
+            if (date.getDate() == 13 && date.getDay() == 5) {
+                console.log(`В ${date.getFullYear()} году  ${date.getMonth() + 1} месяце в 13 цисло это пятница`)
+            }
+            
+            date.setMonth(date.getMonth() + 1, 13);
+ 
+        } while (date < now);
+
+    </script>
+</body>
+
+</html>

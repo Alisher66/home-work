@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+
+
+
+        // 5) В анкете заполняется информация о 5 сотрудниках:фамилия, дата заключения контракта и срок(в годах), на какой заключён контракт.Напишите сценарий,определяюший сотрудников, контракт с которыми заканчивается в выходной день.
+
+
+        var person = [
+            ['Sara', '2020.11.31', 1],
+            ['Alex', '2020.11.11', 3],
+            ['Joe', '2016.12.05', 6],
+            ['Mira', '2018.04.16', 5],
+            ['Smit', '2021.10.16', 2],
+        ];
+
+
+        function showContract(arr) {
+            var old, future, year, month, date;
+            for (var i = 0; i < arr.length; i++) {
+                old = getDateInString(arr[i][1]);
+
+                year = old.getFullYear() + arr[i][2];
+                month = old.getMonth();
+                date = old.getDate();
+                future = new Date(year, month, date);
+
+                console.log(`У сотрудника (${arr[i][0]}) заканчивается контракт в ${showDay(future.getDay())} `);
+            }
+        }
+
+        function getDateInString(dateStr) {
+            var arr = dateStr.split('.');
+
+            var year = arr[0],
+                month = +arr[1] - 1,
+                date = arr[2];
+
+            return new Date(year, month, date);
+        }
+
+        function showDay(num) {
+            if (num == 0) {
+                num = 6;
+            } else {
+                num -= 1;
+            }
+
+            var days = [
+                "Понидельник",
+                "Вторник",
+                "Среда",
+                "Четверг",
+                "Пятница",
+                "Субота",
+                "Воскресенье",
+            ];
+
+            return days[num];
+        }
+
+        
+
+        showContract(person);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // 9) В анкете приводятся данные о семи сотрудниках: фамилия и дата приема на работу. Напишите сценарий вычисления стажаработы (в годах) и определения максимального числа сотрудников с одинаковым стажем.
+
+
+
+
+        function showExperience(arr) {
+
+            var now = new Date();
+            var experience = [], year, date;;
+
+            for (var i = 0; i < arr.length; i++) {
+                date = getDateInString(arr[i][1]);
+
+                year = now.getFullYear() - date.getFullYear();
+                experience.push(year);
+
+                console.log(`У сотрудника ${arr[i][0]} - ${year} -год(а) стаж работы`);
+            }
+            showMaxSame(experience);
+        }
+
+        function getDateInString(dateStr) {
+            var arr = dateStr.split('.');
+
+            var year = arr[0],
+                month = +arr[1] - 1,
+                date = arr[2];
+
+            return new Date(year, month, date);
+        }
+
+        function showMaxSame(arr) {
+            var tempArr = [], res = [];
+            for (var i = 0; i < arr.length; i++) {
+                var n = 1;
+                for (var k = i + 1; k < arr.length; k++) {
+                    if (arr[i] == arr[k]) {
+                        n++;
+                        arr[k] = '';
+                    }
+                }
+                if (n != 1 && arr[i] != '') {
+                    tempArr.push([arr[i], n]);
+                }
+            }
+
+            var max = tempArr[0][1], indexI;
+            for (var i = 0; i < tempArr.length; i++) {
+                max = Math.max(max, tempArr[i][1]);
+                if (max == tempArr[i][1]) indexI = i;
+            }
+            console.log(`максимального числа сотрудников с одинаковым стажем ${max}, Стаж работы ${tempArr[indexI][0]} лет`);
+        }
+
+        var person = [
+            ['person1', '2012.11.10'],
+            ['person2', '2015.10.20'],
+            ['person3', '2018.9.25'],
+            ['person4', '2018.3.12'],
+            ['person5', '2011.4.14'],
+            ['person6', '2015.2.22'],
+            ['person7', '2015.1.26'],
+            ['person6', '2015.2.22'],
+            ['person7', '2015.1.26'],
+        ]
+
+        showExperience(person);
+    </script>
+</body>
+
+</html>

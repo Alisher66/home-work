@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // 7) Напишите сценарий, который по заданной дате определяет номер недели в году.
+
+        var start = new Date(2021, 9, 29);   
+        console.log(start);
+
+        function getDay(date) {
+            var num = date.getDay();
+
+            if(num == 0){
+                num = 7;
+            }
+            console.log(`${num} день недели по заданной дате`);
+        }
+
+        getDay(start);
+
+    </script>
+</body>
+
+</html>
