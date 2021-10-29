@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 12) В анкете заполняется информация о семи сотрудниках: фамилия, дата заключения контракта. Ровно через одиннадцать месяцев после начала работы сотрудникам предоставляется отпуск продолжительностью 24 рабочих дня.
+
+        // Напишите сценарий, определяющий:
+        // - дату начала и окончания отпуска для каждого из сотрудников;
+        // - фамилии сотрудников, отпуск которым будет предоставлен в заданном месяце
+        // - фамилии сотрудников, отпуск которых будет завершен в заданном квартале
+        // - фамилии сотрудников, отпуск которым будет предоставлен в следующем календарном году;
+        // - фамилии сотрудников, отпуск которых будет завершен в следующем календарном году;
+
+
+
+        function showPerson(arr) {
+
+            var now = new Date();
+            var date, newArr = [];
+
+
+            for (var i = 0; i < arr.length; i++) {
+                date = getDateInString(arr[i][1]);
+                newArr.push([arr[i][0], date]);
+            }
+
+            // for (el of newArr) {
+            //     showHoliday(el);
+            // }
+            showHoliday(newArr[1]);
+        }
+
+        function getDateInString(dateStr) {
+            var arr = dateStr.split('.');
+
+            var year = arr[0],
+                month = +arr[1] - 1,
+                date = arr[2];
+
+            return new Date(year, month, date);
+        }
+
+
+
+        var person = [
+            ['person1', '2020.11.10'],
+            ['person2', '2020.10.20'],
+            ['person3', '2018.9.25'],
+            ['person4', '2018.3.12'],
+            ['person5', '2021.4.14'],
+            ['person6', '2021.2.22'],
+            ['person7', '2018.1.26'],
+        ]
+
+
+
+
+        function showHoliday(arr) {
+
+            var date = arr[1];
+
+            var start = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+            start.setMonth(date.getMonth() + 11);
+
+            var now = new Date();
+            if (now.getFullYear() > date.getFullYear()) {
+                date.setFullYear(now.getFullYear());
+                start.setFullYear(now.getFullYear());
+            }
+            date.setMonth(date.getMonth() + 11);
+            console.log(start);
+            
+            var i = 0;
+            do {
+                if (date.getDay() != 0) {
+                    i++
+                }
+                date.setDate(date.getDate() + 1);
+            } while (i < 24);
+            console.log(date);
+            // console.log(
+            //     `У сотрудника ${arr[0]} следующее отпус от ${fillZero(start.getDate())}.${fillZero(start.getMonth()+1)}.${start.getFullYear()}. До ${fillZero(date.getDate())}.${fillZero(date.getMonth()+1)}.${date.getFullYear()}`
+            //     );
+
+        }
+        
+        function fillZero(num) {
+            if(num<=9){
+                num = '0'+num;
+            }
+            return num;
+        }
+
+
+
+
+        showPerson(person);
+    </script>
+</body>
+
+</html>

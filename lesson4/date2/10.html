@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 10) В анкете приводятся данные о шести сотрудниках: фамилия и дата приема на работу. Все сотрудники в зависимости от стажа работы разделяются на категории: проработавшие меньше года относятся к категории "молодой", от года до пяти лет — "опытный", более пяти лет — "ветеран". Напишите сценарий определения стажа работы каждого сотрудника и числа сотрудников в каждой категории. Постройте диаграмму, отражающую число сотрудников в категориях.
+
+
+
+        function showExperience(arr) {
+
+            var now = new Date();
+            var experience = [],
+                year, date, category = '', junior = [], middle = [], senior = [];
+
+            for (var i = 0; i < arr.length; i++) {
+                date = getDateInString(arr[i][1]);
+
+                year = now.getFullYear() - date.getFullYear();
+                if (year < 1) {
+                    category = 'молодой';
+                    junior.push(arr[i][0], year);
+                } else if(year>=1 && year<5) {
+                    category = 'опытный';
+                    middle.push(arr[i][0], year);
+                } else if(year>=5){
+                    senior.push(arr[i][0], year);
+                    category = 'ветеран';
+                }
+                
+                console.log(`У сотрудника ${arr[i][0]} - ${year} -год(а) стаж работы и относиться на категорию ${category}`);
+            }
+            getCountIn(junior, 'молодой');
+            getCountIn(middle, 'опытный');
+            getCountIn(senior, 'ветеран');
+        }
+
+        function getDateInString(dateStr) {
+            var arr = dateStr.split('.');
+
+            var year = arr[0],
+                month = +arr[1] - 1,
+                date = arr[2];
+
+            return new Date(year, month, date);
+        }
+
+        function getCountIn(arr, cat) {
+            console.log(`В категории \"${cat}\" ${arr.length/2} сотрудник(а)`);
+        }
+       
+
+        var person = [
+            ['person1', '2012.11.10'],
+            ['person2', '2015.10.20'],
+            ['person3', '2018.9.25'],
+            ['person4', '2018.3.12'],
+            ['person5', '2011.4.14'],
+            ['person6', '2021.2.22'],
+            ['person7', '2015.1.26'],
+            ['person8', '2015.2.22'],
+            ['person9', '2021.1.26'],
+        ]
+
+        showExperience(person);
+    </script>
+</body>
+
+</html>

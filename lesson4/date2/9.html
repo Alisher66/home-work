@@ -12,7 +12,6 @@
 
 
     <script>
-
         // 9) В анкете приводятся данные о семи сотрудниках: фамилия и дата приема на работу. Напишите сценарий вычисления стажаработы (в годах) и определения максимального числа сотрудников с одинаковым стажем.
 
 
@@ -21,7 +20,8 @@
         function showExperience(arr) {
 
             var now = new Date();
-            var experience = [], year, date;;
+            var experience = [],
+                year, date;
 
             for (var i = 0; i < arr.length; i++) {
                 date = getDateInString(arr[i][1]);
@@ -45,7 +45,8 @@
         }
 
         function showMaxSame(arr) {
-            var tempArr = [], res = [];
+            var tempArr = [],
+                res = [];
             for (var i = 0; i < arr.length; i++) {
                 var n = 1;
                 for (var k = i + 1; k < arr.length; k++) {
@@ -59,12 +60,14 @@
                 }
             }
 
-            var max = tempArr[0][1], indexI;
+            var max = tempArr[0][1],
+                indexI;
             for (var i = 0; i < tempArr.length; i++) {
                 max = Math.max(max, tempArr[i][1]);
                 if (max == tempArr[i][1]) indexI = i;
             }
-            console.log(`максимального числа сотрудников с одинаковым стажем ${max}, Стаж работы ${tempArr[indexI][0]} лет`);
+            console.log(
+                `максимального числа сотрудников с одинаковым стажем ${max}, Стаж работы ${tempArr[indexI][0]} лет`);
         }
 
         var person = [
