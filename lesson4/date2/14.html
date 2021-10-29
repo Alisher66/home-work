@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 14)  В анкете заполняется информация о семи сотрудниках, принятых на работу на основе почасовой оплаты: фамилия, оплата за час, дата начала работы, дата окончания. Напишите сценарий, при работе которого определяется:
+        // - количество рабочих дней для каждого сотрудника;
+        // - количество выходных дней между заданными датами;
+        // - размер гонорара, учитывая, что каждый рабочий день длится 8 часов (стоимость одного часа работы указана в договоре и содержится в анкете)
+
+        var person = [
+            ['person1', '10', new Date(2021, 10), new Date(2021, 11)],
+            ['person2', '5', new Date(2020, 0), new Date(2021, 11)],
+            ['person3', '15', new Date(2021, 5), new Date(2021, 11)],
+            ['person4', '20', new Date(2020, 4), new Date(2021, 11)],
+            ['person5', '8', new Date(2019, 8), new Date(2021, 11)],
+            ['person6', '6', new Date(2018, 11), new Date(2021, 11)],
+            ['person7', '12', new Date(2021, 3), new Date(2021, 11)]
+        ];
+
+        function showPerson(arr) {
+
+            for (var i = 0; i < arr.length; i++) {
+                showWorkingDays(arr[i]);
+            }
+        }
+
+        function showWorkingDays(arr) {
+            var working = 0, holidays = 0, payment = arr[1];
+
+
+            var start = arr[2],
+                end = arr[3];
+
+            do {
+                if (start.getDay() == 0 || start.getDay() == 6) {
+                    holidays++;
+                } else {
+                    working++;
+                }
+                start.setDate(start.getDate() + 1);
+
+            } while (start <= end)
+            console.log(`У сотрудника ${arr[0]} >> ${working}- рабочих и ${holidays}-выходных дней.\nРазмер гонорара = ${showSalary(payment, working)} $$`);
+
+        }
+
+        function showSalary(payment, day) {
+            return payment * day * 8;
+        }
+
+        showPerson(person);
+
+
+
+
+    </script>
+</body>
+
+</html>

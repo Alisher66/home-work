@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 15) В старояпонском календаре был принят 60-летний цикл, состоящий из пяти 12-летних подциклов. Подциклы обозначались названиями цвета: зеленый, красный, желтый, белый, черный. Внутри каждого подцикла годы носили названия животных: крысы, коровы, тигра, зайца, дракона, змеи, лошади, овцы, обезьяны, курицы, собаки и свиньи. Например, 1984 год (год зеленой крысы) был началом очередного цикла. Напишите сценарий, который по заданной дате определяет название года по старояпонскому календарю.
+
+
+
+        const colors = ['зеленый', 'красный', 'желтый', 'белый', 'черный'];
+        const pets = ['крысы', 'коровы', 'тигра', 'зайца', 'дракона', 'змеи', 'лошади', 'овцы', 'обезьяны', 'курицы', 'собаки', 'свиньи'];
+
+        var now = new Date(2020,1);
+
+        getNameOfYear(now);
+        function getNameOfYear(date) {
+            var year = date.getFullYear();
+
+            var start = 1984,
+                dif = Math.abs(year - start);
+
+            if (dif > 60) {
+                dif = dif - parseInt(dif / 60) * 60
+            }
+
+            var name1 = dif / 12;
+
+            if (name1 < 1) {
+                name1 = 0;
+            } else if (name1 >= 1 && name1 < 2) {
+                name1 = 1;
+            } else if (name1 >= 2 && name1 <3) {
+                name1 = 2;
+            } else if (name1 >= 3 && name1 < 4) {
+                name1 = 3;
+            } else if (name1 >= 4 && name1 < 5) {
+                name1 = 4;
+            }
+
+            var name2 = dif % 12;
+
+            console.log(`${year} => год ${colors[name1]} ${pets[name2]} `);
+        }
+
+
+
+    </script>
+</body>
+
+</html>
