@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // Задача, Копировать элементы объекта cars
+        var cars = {
+            name: 'Nisan',
+            tools: {
+                a: 2,
+                b: 3,
+                gg: {
+                    s: 10,
+                    b: 20,
+                },
+                arr2: [2, 3, 4, 5]
+            },
+            speed: 150,
+
+            other: [
+                2, 3, 4,
+                [4, 5, 6, null],
+                [3, { f: 23, t: 21 }, 0],
+                { a: 3, b: 4, ss: null }
+            ],
+            dates: [
+                new Date(2021, 10, 5),
+                new Date(2020, 10, 5),
+            ],
+
+            newf: function () {
+                console.log(this.name);
+            },
+            name2:null,
+            name3:undefined,
+            name4:NaN,
+
+        }
+
+        function copyObj(obj) {
+            var copy = {};
+
+            for (var key in obj) {
+                if (typeof obj[key] == 'object' && obj[key] != null) {
+                    if (obj[key].length == undefined && !obj[key].getTime) {
+                        copy[key] = copyObj(obj[key]);
+                    } else if (obj[key].length != undefined && !obj[key].getTime) {
+                        copy[key] = copyArr(obj[key]);
+                    } else if (obj[key].getTime) {
+                        copy[key] = copyDate(obj[key]);
+                    }
+                }
+                else copy[key] = obj[key];
+            }
+            return copy;
+        }
+
+        function copyArr(arr) {
+            var resArr = [];
+            for (var el of arr) {
+                if (typeof el == 'object' && el !=null) {
+                    if (el.length == undefined && !el.getTime) {
+                        resArr.push(copyObj(el));
+                    } else if (el.length != undefined && !el.getTime) {
+                        resArr.push(copyArr(el));
+                    } else if (el.getTime) {
+                        resArr.push(copyDate(el))
+                    }
+                }
+                else {
+                    resArr.push(el);
+                }
+            }
+            return resArr;
+        }
+
+        function copyDate(date) {
+            var newDate = new Date(date.getTime());
+            return newDate;
+        }
+
+
+
+        var car2 = copyObj(cars);
+        car2.name = 'Bugatti';
+        car2.tools.arr2[0] = 'asdasd';
+        car2.tools.gg.s = 2222;
+        car2.tools.a = 5;
+        car2.other[0] = 33;
+        car2.other[3][0] = 'bb';
+        car2.other[4][1].f = 'aaaaaa';
+
+        console.log(cars);
+        cars.newf();
+        car2.name2 = 22;
+        car2.dates[0].setFullYear(2019);
+        console.log(car2);
+        car2.newf();
+    </script>
+</body>
+
+</html>
