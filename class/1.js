@@ -46,7 +46,7 @@ class Phone {
 
     sendMessageс(numbers, message) {
         for(let phone of numbers){
-            console.log(`на номер ${phone} отпрвлено сообшение ${message}`)
+            console.log(`на номер ${phone} отпрвлено сообшение=> ${message}`)
         }
     }
 }
