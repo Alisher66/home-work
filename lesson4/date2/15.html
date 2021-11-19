@@ -19,7 +19,7 @@
         const colors = ['зеленый', 'красный', 'желтый', 'белый', 'черный'];
         const pets = ['крысы', 'коровы', 'тигра', 'зайца', 'дракона', 'змеи', 'лошади', 'овцы', 'обезьяны', 'курицы', 'собаки', 'свиньи'];
 
-        var now = new Date(2020,1);
+        var now = new Date(2044, 1);
 
         getNameOfYear(now);
         function getNameOfYear(date) {
@@ -28,23 +28,11 @@
             var start = 1984,
                 dif = Math.abs(year - start);
 
-            if (dif > 60) {
-                dif = dif - parseInt(dif / 60) * 60
+            if (dif >= 60) {
+                dif = dif % 60;
             }
 
-            var name1 = dif / 12;
-
-            if (name1 < 1) {
-                name1 = 0;
-            } else if (name1 >= 1 && name1 < 2) {
-                name1 = 1;
-            } else if (name1 >= 2 && name1 <3) {
-                name1 = 2;
-            } else if (name1 >= 3 && name1 < 4) {
-                name1 = 3;
-            } else if (name1 >= 4 && name1 < 5) {
-                name1 = 4;
-            }
+            var name1 = Math.floor(dif / 12);
 
             var name2 = dif % 12;
 

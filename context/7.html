@@ -34,29 +34,47 @@
         }
 
         function getMax(fn, num) {
-            let i = 0;
-
-            function x() {
-                if (i < num) {
-                    i++;
-                    return fn;
-                } else {
-                    return function () {
-                        return 'Максимум'
-                    }
-                }
-            }
-            return x
-            
-            
+            let counter = 0;
+            return function() {
+                counter++;
+                if(counter > num) {
+                    return "Максимум!"
+                } 
+                else return fn.apply(this, arguments);
+            } 
         }
 
-        let a = getMax(add, 2);
+        let a = getMax(add, 3);
+
+        console.log(a(2,3));
+        console.log(a(12,3));
+        console.log(a(0,3));
+        console.log(a(0,1));
+
+        // function getMax(fn, num) {
+        //     let i = 0;
+
+        //     function x() {
+        //         if (i < num) {
+        //             i++;
+        //             return fn;
+        //         } else {
+        //             return function () {
+        //                 return 'Максимум'
+        //             }
+        //         }
+        //     }
+        //     return x
+            
+            
+        // }
+
+        // let a = getMax(add, 2);
      
-        console.log(a()(1, 2));
-        console.log(a()(2, 4));
-        console.log(a()(2, 4));
-        console.log(a()(2, 1));
+        // console.log(a()(1, 2));
+        // console.log(a()(2, 4));
+        // console.log(a()(2, 4));
+        // console.log(a()(2, 1));
     </script>
 </body>
 
