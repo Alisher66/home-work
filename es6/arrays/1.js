@@ -10,8 +10,8 @@
 // 10) Дан массив с числами. Посчитайте количество отрицательных чисел в этом массиве
 // 11) Дан массив с числами. Найдите сумму этих чисел
 
-// 13)  Дан массив с числами. Найдите сумму последних N элементов до первого нуля с конца. Пример: [1, 2, 3, 0, 4, 5, 6] - суммируем последние 3 элемента, так как дальше стоит элемент с числом 0.
-// 14) Дан массив с числами. Узнайте сколько элементов с начала массива надо сложить, чтобы в сумме получилось больше 10-ти)
+
+
 // 15)  Дан массив с числами. Оставьте в нем только положительные числа. Затем извлеките квадратный корень и этих чисел
 
 let arr = [1, -2, 3, -4, 5, -6, 7, 8, -9, 10];
@@ -25,19 +25,19 @@ let isNegative = arr.some((item) => item < 0);
 
 let negativeEl = arr.filter((item) => item < 0);
 let eventEl = arr.filter((item) => item % 2 == 0);
-console.log(eventEl);
+// console.log(eventEl);
 
 
 
 let persons = ['Dima', 'Aleksey', 'Grigoriy', "Anton", "Nikolay"];
 
-let person5 = persons.filter((person) => person.length >5);
-console.log(person5);
+let person5 = persons.filter((person) => person.length > 5);
+// console.log(person5);
 
 let points = [1, 2, [3, 4], 5, [6, 7]];
 
 let point1 = points.filter((point) => Array.isArray(point));
-console.log(point1);
+// console.log(point1);
 
 let negative = arr.filter((item) => item < 0).length;
 // let x = 0;
@@ -49,14 +49,41 @@ let negative = arr.filter((item) => item < 0).length;
 
 
 // 12) Дан массив с числами. Найдите сумму первых N элементов до первого нуля. Пример: [1, 2, 3, 0, 4, 5, 6] - суммируем первые 3 элемента, так как дальше стоит элемент с числом 0
+let arrTemp = [1, 2, 3, 8, 4, 5, 6, 7, 13];
+let sum1 = arrTemp.filter((num, index, arr) => index < arr.indexOf(0)).reduce((sum, item) => sum + item, 0);
+// console.log(sum1);
 
-let arrTemp = [1, 2, 3, 0, 4, 5, 6];
 
-let sum1 = arrTemp.reduce((sum, item, index,arr) =>{
-    if(item != 0){
+
+
+
+// 13)  Дан массив с числами. Найдите сумму последних N элементов до первого нуля с конца. Пример: [1, 2, 3, 0, 4, 5, 6] - суммируем последние 3 элемента, так как дальше стоит элемент с числом 0.
+let sum2 = arrTemp.filter((num, index, arr) => index > arr.indexOf(0)).reduce((sum, item) => sum + item, 0);
+// console.log(sum2);
+
+
+
+
+// 14) Дан массив с числами. Узнайте сколько элементов с начала массива надо сложить, чтобы в сумме получилось больше 10-ти)
+let i = 0;
+let sum3 = arrTemp.reduce((sum, item, index) =>{
+    if(sum >= 10){
+        return sum;
+    } else {
+        i = index;
         return sum+item;
-    } else return sum
-},0);  
+    }
+ 
+}, 0);
 
-console.log(sum1);
+// console.log(sum3, i)
 
+
+
+// 15)  Дан массив с числами. Оставьте в нем только положительные числа. Затем извлеките квадратный корень и этих чисел
+
+
+let arrTemp2 = [1, -2, 3, -8, 4, 5, -6, 7, 13];
+
+let arr5 = arrTemp2.filter((x) => x>0).map((x) => x**2);
+console.log(arr5);
