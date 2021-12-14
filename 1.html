@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        console.log("script started");
+
+        const interval = setInterval(function() {
+            console.log("set interval");
+        }, 0);
+
+        setTimeout(function(){
+            console.log("settimeout #1");
+
+            Promise.resolve()
+                .then(function(){console.log("promise 3")} )
+                .then(function(){console.log("promise 4")} )
+                .then(function() {
+                    setTimeout(function() {
+                        console.log("settimeout #2");
+
+                        Promise.resolve()
+                            .then(function(){console.log("promise 5")} )
+                            .then(function(){console.log("promise 6")} )
+                            .then(function() {clearInterval(interval)} )
+                    }, 0);
+                })
+        }, 0);
+
+        
+
+        Promise.resolve()
+            .then(function(){ console.log("promise #1")})
+            .then(function(){console.log("promise #2")} )
+            .then(setTimeout(function() {
+                console.log("promise #3")
+            }, 0))
+
+        console.log("script end");
+
+      
+
+   
+    
+    </script>
+</body>
+
+</html>
