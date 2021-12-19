@@ -4,7 +4,7 @@
 function parallel(funcArray, doneAll) {
   this.arr = [];
   this.getArg = function (arg) {
-    arr.push(arg);
+    this.arr.push(arg);
   }
 
   funcArray.forEach(el => {

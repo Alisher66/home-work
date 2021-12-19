@@ -11,45 +11,75 @@
 <body>
     <script>
 
-        console.log("script started");
+        // async function loadJson(url) {
+        //     try {
+        //         let response = await fetch(url);
+        //         let info = await response.json();
+        //         console.log(info);
+        //     }
+        //     catch (err) {
+        //         alert(err);
+        //     }
+        // }
 
-        const interval = setInterval(function() {
-            console.log("set interval");
-        }, 0);
+        // loadJson("https://api.sampleapis.com/countries/countries")
 
-        setTimeout(function(){
-            console.log("settimeout #1");
+        class HttpError extends Error {
+            constructor(response) {
+                super(`${response.status} for ${response.url}`);
+                this.name = 'HttpError';
+                this.response = response;
+            }
+        }
 
-            Promise.resolve()
-                .then(function(){console.log("promise 3")} )
-                .then(function(){console.log("promise 4")} )
-                .then(function() {
-                    setTimeout(function() {
-                        console.log("settimeout #2");
+        async function loadJson(url) {
 
-                        Promise.resolve()
-                            .then(function(){console.log("promise 5")} )
-                            .then(function(){console.log("promise 6")} )
-                            .then(function() {clearInterval(interval)} )
-                    }, 0);
-                })
-        }, 0);
+            let response = await fetch(url);
 
-        
+            if (response.status == 200) {
+                return response.json();
+            }
 
-        Promise.resolve()
-            .then(function(){ console.log("promise #1")})
-            .then(function(){console.log("promise #2")} )
-            .then(setTimeout(function() {
-                console.log("promise #3")
-            }, 0))
+            throw new HttpError(response);
+        }
 
-        console.log("script end");
+        // Запрашивать логин, пока github не вернёт существующего пользователя.
+        async function demoGithubUser() {
+            let name = prompt("Введите логин?", "iliakan");
 
-      
+            // return loadJson(`https://api.github.com/users/${name}`)
+            //     .then(user => {
+            //         alert(`Полное имя: ${user.name}.`);
+            //         return user;
+            //     })
+            //     .catch(err => {
+            //         if (err instanceof HttpError && err.response.status == 404) {
+            //             alert("Такого пользователя не существует, пожалуйста, повторите ввод.");
+            //             return demoGithubUser();
+            //         } else {
+            //             throw err;
+            //         }
+            //     });
+            try {
+                let response = await loadJson(`https://api.github.com/users/${name}`);
+                console.log(response)
+                alert(`Полное имя: ${response.type}.`);
+                return response;
+            }
+            catch (err) {
+                if (err instanceof HttpError && err.response.status == 404) {
+                    alert("Такого пользователя не существует, пожалуйста, повторите ввод.");
+                    return demoGithubUser();
+                } else {
+                    throw err;
+                }
+            }
+        }
 
-   
-    
+        demoGithubUser();
+
+
+
     </script>
 </body>
 
